@@ -184,3 +184,10 @@ def loadMovieLens(path='/data/movielens'):
         prefs.setdefault(user, {})
         prefs[user][movies[movieid]] = float(rating)
     return prefs
+
+
+if __name__ == '__main__':
+    movies = transformPrefs(critics)
+    print(movies)
+    result = topMatches(movies, "Lady in the Water")
+    print(result)

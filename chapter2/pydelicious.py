@@ -85,13 +85,13 @@ def get_popular(tag = ""):
 import httplib
 import md5
 import os
-import time
 import urllib
 import urllib2
 from StringIO import StringIO
 
 import datetime
 import sys
+import time
 
 try:
     from elementtree.ElementTree import parse as parse_xml
