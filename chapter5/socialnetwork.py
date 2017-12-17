@@ -78,3 +78,13 @@ def drawnetwork(sol):
 
 
 domain = [(10, 370)] * (len(people) * 2)
+
+import optimization
+
+if __name__ == '__main__':
+    sol = optimization.randomoptimize(domain, crosscount)
+    print(crosscount(sol))
+
+    sol = optimization.annealingoptimize(domain, crosscount)
+    print(crosscount(sol))
+    drawnetwork(sol)

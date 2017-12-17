@@ -1,4 +1,6 @@
 # The dorms, each of which has two available spaces
+import optimization
+
 dorms = ['Zeus', 'Athena', 'Hercules', 'Bacchus', 'Pluto']
 
 # People, along with their first and second choices
@@ -57,3 +59,10 @@ def dormcost(vec):
         del slots[x]
 
     return cost
+
+
+if __name__ == '__main__':
+    result = optimization.randomoptimize(domain, dormcost)
+    printsolution(result)
+    # result = optimization.geneticoptimize(domain,dormcost)
+    # printsolution(result)

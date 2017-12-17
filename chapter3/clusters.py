@@ -156,7 +156,7 @@ def drawnode(draw, clust, x, y, scaling, labels):
         bottom = y + (h1 + h2) / 2
         # Line length
         ll = clust.distance * scaling
-        # Vertical line from this cluster to children    
+        # Vertical line from this cluster to children
         draw.line((x, top + h1 / 2, x, bottom - h2 / 2), fill=(255, 0, 0))
 
         # Horizontal line to left item
@@ -165,7 +165,7 @@ def drawnode(draw, clust, x, y, scaling, labels):
         # Horizontal line to right item
         draw.line((x, bottom - h2 / 2, x + ll, bottom - h2 / 2), fill=(255, 0, 0))
 
-        # Call the function to draw the left and right nodes    
+        # Call the function to draw the left and right nodes
         drawnode(draw, clust.left, x + ll, top + h1 / 2, scaling, labels)
         drawnode(draw, clust.right, x + ll, bottom - h2 / 2, scaling, labels)
     else:
@@ -294,3 +294,12 @@ def draw2d(data, labels, jpeg='mds2d.jpg'):
         y = (data[i][1] + 0.5) * 1000
         draw.text((x, y), labels[i], (0, 0, 0))
     img.save(jpeg, 'JPEG')
+
+
+if __name__ == '__main__':
+    blognames, words, data = readfile("blogdata.txt")
+    # for line in data:
+    #     print(line)
+    clust = hcluster(data)
+    # printclust(clust, labels=blognames)
+    drawdendrogram(clust, blognames, jpeg='blogclust.jpg')
